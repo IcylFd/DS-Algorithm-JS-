@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [1,4,2,3,8,5,9,6];
+    function quicksort(arr){
+        if(arr.length <= 1){
+
+            return arr;
+        }
+        var flag_index = Math.floor(arr.length / 2);
+        var flag = arr.splice(flag_index,1);
+        var left = [];
+        var right = [];
+        for(var i = 0; i < arr.length ; i++){
+            if(arr[i] < flag){
+                left.push(arr[i]);
+            }else{
+                right.push(arr[i]);
+            }
+        }
+        return quicksort(left).concat(flag,quicksort(right));
+
+    }
+    console.log(quicksort(arr));
+</script>
+</body>
+</html>
